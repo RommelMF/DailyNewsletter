@@ -12,6 +12,7 @@
     <security:http use-expressions="true">
         <security:intercept-url pattern="/user" access="isAuthenticated()"/>
         <security:intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/>
+        <security:access-denied-handler error-page="/access-denied"/>
 
         <security:form-login login-page="/login"
                              login-processing-url="/login/process"
@@ -20,6 +21,7 @@
                              username-parameter="login"
                              password-parameter="password"/>
         <security:logout logout-success-url="/login"/>
+        <security:remember-me remember-me-parameter="rememberMe"/>
         <security:csrf disabled="true"/>
     </security:http>
 

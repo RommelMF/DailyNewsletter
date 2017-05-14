@@ -7,6 +7,7 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>/WEB-INF/app-context.xml
                 /WEB-INF/app-security.xml
+                /WEB-INF/app-database.xml
     </param-value>
   </context-param>
   <listener>

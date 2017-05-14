@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.security.Principal;
+
 /**
  * Created by Home on 02.05.2017.
  */
@@ -41,6 +43,18 @@ public class MainClientController {
         modelAndView.setViewName("login");
 
         return modelAndView;
+    }
+    @RequestMapping(value = "/access-denied", method = RequestMethod.GET)
+    public ModelAndView accessDenied(Principal user) {
+        ModelAndView model = new ModelAndView();
+
+        if(user != null) {
+            model.addObject("errorMsg", user.getName() + " ,you have no access to this page!");
+        } else {
+            model.addObject("errorMsg","You have no access to this page!");
+        }
+        model.setViewName("/authorization/access-denied");
+        return model;
     }
 
 
