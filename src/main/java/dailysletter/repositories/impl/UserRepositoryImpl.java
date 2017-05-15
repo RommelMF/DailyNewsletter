@@ -24,7 +24,6 @@ import java.util.List;
 public class UserRepositoryImpl implements UserDAO{
     private static final String usersTable = "users";
     private NamedParameterJdbcTemplate jdbcTemplate;
-    private DataSource dataSource;
 
     @Autowired
     public void setDataSource(DataSource dataSource) {
